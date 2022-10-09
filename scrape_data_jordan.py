@@ -43,6 +43,12 @@ for offset in range(0,1000,50):
             individual.append(address)
             individual.append(coordinates)
             individual.append(transactions)
+            
+            if "price" in request.json()["businesses"][0].keys():
+                price = request.json()["businesses"][0]["price"]
+            else:
+                price = " "
+            individual.append(price)
             restaurant_data.append(individual)
     else:
         break
@@ -60,7 +66,8 @@ for i in range(len(restaurant_data)):
         "categories": restaurant_data[i][5],
         "address": restaurant_data[i][6],
         "coordinates": restaurant_data[i][7],
-        "transaction types": restaurant_data[i][8]
+        "transaction types": restaurant_data[i][8],
+        "price level": restaurant_data[i][9]
     }
 
     restaurants.append(info)
@@ -68,6 +75,6 @@ for i in range(len(restaurant_data)):
 restaurants_sorted = sorted(restaurants, key = operator.itemgetter("id"), reverse=True)
 
 with open("results.csv", "w", encoding = "utf-8", newline="") as output_file:
-    dict_writer = csv.DictWriter(output_file, fieldnames=["id", "name", "is closed", "rating", "review count", "categories", "address", "coordinates", "transaction types"])
+    dict_writer = csv.DictWriter(output_file, fieldnames=["id", "name", "is closed", "rating", "review count", "categories", "address", "coordinates", "transaction types", "price level"])
     dict_writer.writeheader()
     dict_writer.writerows(restaurants_sorted)
