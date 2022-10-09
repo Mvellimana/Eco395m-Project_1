@@ -1,4 +1,6 @@
 import requests
+import os
+import csv
 
 
 url = "https://api.yelp.com/v3/businesses/search"
@@ -45,5 +47,21 @@ for offset in range(0,1000,50):
         break
 
 
+restaurants = []
+
+for i in range(len(restaurant_data)):
+    info = {
+        "id": restaurant_data[i][0],
+        "name": restaurant_data[i][1],
+        "is closed": restaurant_data[i][2],
+        "rating": restaurant_data[i][3],
+        "review count": restaurant_data[i][4],
+        "categories": restaurant_data[i][5],
+        "address": restaurant_data[i][6],
+        "coordinates": restaurant_data[i][7],
+        "transaction types": restaurant_data[i][8]
+    }
+
+    restaurants.append(info)
 
 
