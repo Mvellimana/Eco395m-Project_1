@@ -1,6 +1,7 @@
 import requests
 import os
 import csv
+import operator
 
 
 url = "https://api.yelp.com/v3/businesses/search"
@@ -64,8 +65,9 @@ for i in range(len(restaurant_data)):
 
     restaurants.append(info)
 
+restaurants_sorted = sorted(restaurants, key = operator.itemgetter("id"), reverse=True)
 
 with open("results.csv", "w", encoding = "utf-8", newline="") as output_file:
     dict_writer = csv.DictWriter(output_file, fieldnames=["id", "name", "is closed", "rating", "review count", "categories", "address", "coordinates", "transaction types"])
     dict_writer.writeheader()
-    dict_writer.writerows(restaurants)
+    dict_writer.writerows(restaurants_sorted)
