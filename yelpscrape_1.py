@@ -19,4 +19,10 @@ response = r.request('GET', url, headers=headers, params=url_params)
 #print(response.json())
 
 restaurants_list = []
-
+                       
+request = r.get(url, headers = headers, params = url_params)
+for business in response.json()['businesses']:
+  name = business["name"]
+  rating = business["rating"]
+  #price = business["price"]
+  restaurants_list.append([name,rating])
