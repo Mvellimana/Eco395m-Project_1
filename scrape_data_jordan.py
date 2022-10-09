@@ -65,3 +65,7 @@ for i in range(len(restaurant_data)):
     restaurants.append(info)
 
 
+with open("results.csv", "w", encoding = "utf-8", newline="") as output_file:
+    dict_writer = csv.DictWriter(output_file, fieldnames=["id", "name", "is closed", "rating", "review count", "categories", "address", "coordinates", "transaction types"])
+    dict_writer.writeheader()
+    dict_writer.writerows(restaurants)
