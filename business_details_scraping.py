@@ -21,9 +21,25 @@ def extract_display_address_from_business(data):
 
     return display_address
 
+def extract_info_from_business(data):
+    is_closed = extract_is_closed_from_business(data)
+    business_id = extract_id_from_business(data)
+    business_coordinates = extract_coordinates_from_business(data)
+    display_address = extract_display_address_from_business(data)
+    business = {
+        "id": business_id,
+        "is_closed": is_closed,
+        "coordinates": business_coordinates,
+        "display_address": display_address
+    }
 
+    return business
 
+def extract_info_per_business(raw_business_data):
+    data = json.loads(raw_business_data)
+    info = extract_info_from_business(data)
 
+    return info
 
 
 #Expecteds
@@ -33,8 +49,12 @@ expected_latitude = 37.787789124691
 expected_longitude = -122.399305736113
 expected_display_address_line1 = "123 Second St"
 expected_display_address_line2 = "San Francisco, CA 94105"
-
-
+expected_business = {
+    'id': expected_id,
+    'is_closed': expected_is_closed,
+    'coordinates': {'latitude': expected_latitude, 'longitude': expected_longitude},
+    'display_address': [expected_display_address_line1, expected_display_address_line2]
+    }
 
 
 #Test data
@@ -164,3 +184,6 @@ assert result["longitude"] == expected_longitude
 result = extract_display_address_from_business(data)
 assert result[0] == expected_display_address_line1
 assert result[1] == expected_display_address_line2
+
+result = extract_info_from_business(data)
+assert result == expected_business
