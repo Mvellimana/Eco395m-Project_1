@@ -11,12 +11,23 @@ def extract_is_closed_from_business(data):
 
     return is_closed
 
+def extract_coordinates_from_business(data):
+    business_coordinates = data["coordinates"]
+
+    return business_coordinates
+
+
+
+
+
+
 
 
 #Expecteds
 expected_id = "gR9DTbKCvezQlqvD7_FzPw"
 expected_is_closed = False
-
+expected_latitude = 37.787789124691 
+expected_longitude = -122.399305736113
 
 
 
@@ -141,3 +152,7 @@ assert result == expected_id
 
 result = extract_is_closed_from_business(data)
 assert result == expected_is_closed
+
+result = extract_coordinates_from_business(data)
+assert result["latitude"] == expected_latitude
+assert result["longitude"] == expected_longitude
