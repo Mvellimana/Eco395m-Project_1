@@ -16,7 +16,10 @@ def extract_coordinates_from_business(data):
 
     return business_coordinates
 
+def extract_display_address_from_business(data):
+    display_address = data["location"]["display_address"]
 
+    return display_address
 
 
 
@@ -28,7 +31,8 @@ expected_id = "gR9DTbKCvezQlqvD7_FzPw"
 expected_is_closed = False
 expected_latitude = 37.787789124691 
 expected_longitude = -122.399305736113
-
+expected_display_address_line1 = "123 Second St"
+expected_display_address_line2 = "San Francisco, CA 94105"
 
 
 
@@ -156,3 +160,7 @@ assert result == expected_is_closed
 result = extract_coordinates_from_business(data)
 assert result["latitude"] == expected_latitude
 assert result["longitude"] == expected_longitude
+
+result = extract_display_address_from_business(data)
+assert result[0] == expected_display_address_line1
+assert result[1] == expected_display_address_line2
