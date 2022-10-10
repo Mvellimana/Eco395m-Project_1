@@ -6,9 +6,20 @@ def extract_id_from_business(data):
 
     return business_id
 
+def extract_is_closed_from_business(data):
+    is_closed = data["is_closed"] 
+
+    return is_closed
+
+
 
 #Expecteds
 expected_id = "gR9DTbKCvezQlqvD7_FzPw"
+expected_is_closed = False
+
+
+
+
 
 
 #Test data
@@ -127,3 +138,6 @@ data = json.loads(test_business)
 
 result = extract_id_from_business(data)
 assert result == expected_id
+
+result = extract_is_closed_from_business(data)
+assert result == expected_is_closed
