@@ -74,10 +74,10 @@ ax.set_title('Best Restaurant Category')
 ax.set_yticks(x, df_anlz_final.Categories_merged)
 ax.legend(loc='best', bbox_to_anchor= (1.5, 1.1))
 
-fig.tight_layout()
 
 
-plt.show()
+
+
 
 
 #filter the data by food truks
@@ -121,7 +121,7 @@ ax.set_title('Food Trucks Areas in Austin (Yelp Sample)')
 ax.set_yticks(x2, df_fig3_final.Zipcode)
 
 
-fig.tight_layout()
+
 
 plt.show()
 
