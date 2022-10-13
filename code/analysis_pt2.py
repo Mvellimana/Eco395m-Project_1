@@ -58,7 +58,26 @@ df_anlz_final = df_anlz_final.sort_values(by=['Rating_stndized',], ascending= Fa
 
 
 
+# plot the standarized values of average ratings (more is good) and number of resturants (less is good) by category
 
+x = np.arange(len(df_anlz_final.Categories_merged))  # the label locations
+width = 0.35  # the width of the bars
+
+fig, ax = plt.subplots()
+rects1 = ax.barh(x - width/2, df_anlz_final.Rating_stndized, width, label='Average Rating', align='center')
+rects2 = ax.barh(x + width/2, df_anlz_final["rest_count_standarized"], width, label='Number of Restaurants', align='center')
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_ylabel('Restaurant Cateogries')
+ax.set_xlabel('Standarized Scale')
+ax.set_title('Best Restaurant Category')
+ax.set_yticks(x, df_anlz_final.Categories_merged)
+ax.legend(loc='best', bbox_to_anchor= (1.5, 1.1))
+
+
+fig.tight_layout()
+
+plt.show()
 
 
 
