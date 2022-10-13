@@ -44,7 +44,7 @@ Austin restaurants seem to be popular among for people with a mean rating of 4.1
 
 To start with lets get a visual idea of where the restaurants are located in Austin. Yelpen lists the price range in 3 categories i.e low price, medium price and high price. With help of cordinates obtained from Yelp we plotted them on Austin City map boundaries. Restaurants seem to be uniformly distributed with respect to price. One expected observation is that expensive (more likely fine dining) restaurants are not present in Outskirts of the city like south Austin or Winderson Mill. Most of the restaurants are concentrated in central Austin (Downtown, campus area, east caeser chavez, north loop etc). Most of them are situated along I-35 and Mopac (not surprising). 
 
-![Restaurant Locations in Austin](/artifacts/gif/price_range_map.png)
+![Restaurant Locations in Austin](/artifacts/figures/price_range_map.png)
 
 This map is populated using the script: price_range_map.py
 
@@ -65,7 +65,7 @@ We observed that there are many categories of food in Austin and so naturally it
 | Food delivery services/groceries/venues/cafeterias |
 | Specification (Vegan/Glutenfree)                   |
 
-![Food Categories](/artifacts/gif/category.gif)
+![Food Categories](/artifacts/figures/category.gif)
 
 
 This map is populated using the script: category_map.py
