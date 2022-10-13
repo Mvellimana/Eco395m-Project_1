@@ -6,3 +6,4 @@ bs4==0.0.1
 shapely==1.8.5
 ffmpeg==1.4
 geopandas==0.11.0
+scipy==1.9.2
