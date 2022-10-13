@@ -92,3 +92,15 @@ df_fig3_sum2 = df_fig3.groupby(["Zipcode"])["Zipcode"].count().reset_index(name=
 df_fig3_sum3 = df_fig3.groupby(["Zipcode"])["rating"].mean().reset_index(name="avg_rating")
 
 
+
+#merge all the previous generated columns to one dataframe
+
+df_fig3_final = pd.merge(df_fig3_sum, df_fig3_sum2, on = "Zipcode")
+df_fig3_final = pd.merge(df_fig3_final, df_fig3_sum3, on = "Zipcode")
+
+
+
+
+
+
+
