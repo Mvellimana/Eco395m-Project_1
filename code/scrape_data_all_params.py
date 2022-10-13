@@ -86,7 +86,7 @@ restaurants_sorted = sorted(restaurants, key = operator.itemgetter("id"), revers
 '''
 Writing the list of dictionaries to CSV
 '''
-with open("results.csv", "w", encoding = "utf-8", newline="") as output_file:
+with open(os.path.join("artifacts", "results.csv"), "w", encoding = "utf-8", newline="") as output_file:
     dict_writer = csv.DictWriter(output_file, fieldnames=["id", "name", "is closed", "rating", "review count", "categories", "address", "coordinates", "transaction types", "price level"])
     dict_writer.writeheader()
     dict_writer.writerows(restaurants_sorted)
