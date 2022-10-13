@@ -76,7 +76,7 @@ We analyzed the resturants by their category in order to get the averages of pri
 
 As we can see from the graph below, the market is saturated with American, Mexican/South American, and Asian. However, by looking at the Food Truck/Food Stands and Middle Eastern/Indian/African categories, we can see good opportunites there in terms of lack of number of resturants, and their high reviews which reflects the prefrence of the consumers. For the sake of this project we decided to deep-dive into the Food Truck/Food Stands category.
 
-![Best Restaurants Category](/artifacts/best_restaurant.png)
+![Best Restaurants Category](/artifacts/best_restaurant.jpeg)
 
 ### What Zip Code is optimal?
 
@@ -90,11 +90,11 @@ Market Niche = (Average Number of Reviews by the Zip Code * Average Rating by th
 
 We found out that 78741 is the highest by far. One reason is because there is an HEB market in this ZIP Code, with an elementary school which reflects a neighborhood with certain purchasing power.
 
-![Food Trucks in Austin by Zip Code](/artifacts/food_trucks.png)
+![Food Trucks in Austin by Zip Code](/artifacts/food_trucks.jpeg)
 
 ## Conclusion
 
-So this analysis would be great to explore potential restaurant categories in the food and beverage sector. We leveraged our skills in scraping to explore the data in Austin. Then we cleaned it, and analyze it accordingly. This analysis would be helpful to be included in the market validation study within the food and beverage sector.
+So this analysis would be prudent to explore potential restaurant categories in the food and beverage sector. We leveraged our skills in scraping to explore the data in Austin. Then we cleaned it, and analyze it accordingly. This analysis would be helpful to be included in the market validation study within the food and beverage sector.
 
 ## Limitation and Scope for Future Developments
 
