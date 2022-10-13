@@ -72,11 +72,13 @@ ax.set_ylabel("Restaurant Cateogries")
 ax.set_xlabel("Standarized Scale")
 ax.set_title("Best Restaurant Category")
 ax.set_yticks(x, df_anlz_final.Categories_merged)
-ax.legend(loc="best")
+ax.legend(loc="best", bbox_to_anchor= (1.5, 1.1))
 
 fig.tight_layout()
 
-
+fig.savefig('artifacts/best_category.png', 
+              dpi=100, format='png', 
+              bbox_inches='tight')
 
 #filter the data by food truks
 
@@ -118,8 +120,9 @@ ax.set_xlabel("Market Niche Value")
 ax.set_title("Food Trucks Areas in Austin (Yelp Sample)")
 ax.set_yticks(x2, df_fig3_final.Zipcode)
 
+fig.savefig('artifacts/market_niech.png', 
+              dpi=100, format='png', 
+              bbox_inches='tight')
 
 
-
-plt.show()
 
