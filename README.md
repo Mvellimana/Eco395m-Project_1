@@ -29,3 +29,18 @@ Additional packages should be included in requirements.txt
 All data cleaning must be reproducible through code – data must not be manually modified (i.e. no modifications in Excel)
 Must use relative paths
 Data should be included in the repository if the dataset is small enough, otherwise instructions for downloading the datasets and placing them in the right locations is required.'''
+
+
+
+
+Objective
+
+
+Dataset
+Data from Yelp website was used for our study. An API scrapring of the Austin area was done to extract restaurant details such as name, address, coordinates, rating, review count, restaurant category, price level and transaction types (pickup, delivery and/or restaurant reservation). This produced a result containing 1000 different resturants in Austin city.
+
+Methodology
+
+Analysis
+
+Conclusion
