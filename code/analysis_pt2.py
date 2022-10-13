@@ -99,7 +99,11 @@ df_fig3_final = pd.merge(df_fig3_sum, df_fig3_sum2, on = "Zipcode")
 df_fig3_final = pd.merge(df_fig3_final, df_fig3_sum3, on = "Zipcode")
 
 
+#come up with a stat to measure market niech by multiplying avg number of reviews by zip code by average rating by zip code, and divding that by number of resturants by zip code 
 
+
+df_fig3_final["marker_niech"] =( df_fig3_final["avg_review_count"] * (df_fig3_final["avg_rating"])) / df_fig3_final["rest_count_by_zipcode"]
+df_fig3_final = df_fig3_final.sort_values('marker_niech', ascending= True)
 
 
 
