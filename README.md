@@ -15,7 +15,7 @@ Methodology
   The API dataset needed to be cleaned and reformatted for analysis purposes. Pandas library was primarily used for data pre processing. Records with 
   missing price level data were dropped. To remove rating bias due to low number reviews, records with reviews count less than 10 were also dropped. This 
   threshold of 10 was selected based on a review count CDF plot.
-  The Yelp scraped dataset included 124 different categories for restaurants. These were merged into 10 broader groups. Zipcodes were separated from 
+  The Yelp scraped dataset included 124 different categories for restaurants. These were aggregated into 10 broader groups. Zipcodes were separated from 
   address data, and latitude and longitude values were extracted from cooridinate information. Transaction types were separated to indivdual columns with 
   binary values for each unique type. Ratings and review counts were standized using the z-score formula. 
 
@@ -26,6 +26,8 @@ Results
 Conclusion
 
 Limitation and Future work
+
+- Further analysis is recommended to estimate missing price data. Due to time constraints records with missing data were dropped. 
 
 
 
