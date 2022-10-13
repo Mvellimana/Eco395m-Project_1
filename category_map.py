@@ -26,3 +26,30 @@ austin_map = gpd.read_file(os.path.join(os.getcwd(), 'austin_shapefile/geo_expor
 crs = {'init': 'epsg:4326'}
 geometry = [Point(xy) for xy in zip(df["Longitude"],df["Latitude"])]
 geo_df = gpd.GeoDataFrame(df, crs=crs, geometry=geometry)
+
+"""plot a graph fr every food category and save them using a loop"""
+list_of_categories = ["American",
+                      "Mexican_South_American",
+                      "Bars_Pubs",
+                      "Asian",
+                      "Cafes_Juice_bars_Desserts",
+                      "Middle-eastern_Indian_African",
+                      "Pizza_European",
+                      "Food_Trucks_Food_Stands",
+                      "Specification_(Vegan_Glutenfree)",
+                      "food_delivery_services_groceries_venues_cafeterias"]
+
+def plot_foodcategory(category):
+    fig,ax = plt.subplots(figsize = (15,15))
+    austin_map.plot(ax=ax, alpha=0.4, color="k")
+    plot = geo_df[geo_df["Categories_merged"] == category].plot(ax=ax, markersize=100, color="m", marker="p", label=str(category))
+    ax.set_title("Food Category = " + str(category))
+    return ax,fig
+
+
+for category in list_of_categories:
+    ax, fig = plot_foodcategory(category)
+    fig.savefig('gif/{}.png'.format(category), 
+              dpi=100, format='png', 
+              bbox_inches='tight')
+    plt.close()
