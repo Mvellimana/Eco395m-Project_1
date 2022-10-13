@@ -53,3 +53,15 @@ for category in list_of_categories:
               dpi=100, format='png', 
               bbox_inches='tight')
     plt.close()
+
+"""write a code to merge the individual graph images into a gif"""
+frames = []
+imgs = glob.glob("gif/*.png")
+for i in imgs:
+    new_frame = Image.open(i)
+    frames.append(new_frame)
+ 
+frames[0].save('gif/category.gif', format='GIF',
+               append_images=frames[1:],
+               save_all=True,
+               duration=1000, loop=0)
