@@ -74,8 +74,8 @@ ax.set_title('Best Restaurant Category')
 ax.set_yticks(x, df_anlz_final.Categories_merged)
 ax.legend(loc='best', bbox_to_anchor= (1.5, 1.1))
 
-
 fig.tight_layout()
+
 
 plt.show()
 
@@ -85,6 +85,10 @@ plt.show()
 df_fig3 = df_anlz.query('Categories_merged == "Food Trucks/Food Stands"')
 
 
+#Get avg review count, resturant numbers by zip code, avg rating by zip code
 
+df_fig3_sum = df_fig3.groupby(["Zipcode"])["review count"].mean().reset_index(name="avg_review_count")
+df_fig3_sum2 = df_fig3.groupby(["Zipcode"])["Zipcode"].count().reset_index(name="rest_count_by_zipcode")
+df_fig3_sum3 = df_fig3.groupby(["Zipcode"])["rating"].mean().reset_index(name="avg_rating")
 
 
