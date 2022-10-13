@@ -99,12 +99,29 @@ df_fig3_final = pd.merge(df_fig3_sum, df_fig3_sum2, on = "Zipcode")
 df_fig3_final = pd.merge(df_fig3_final, df_fig3_sum3, on = "Zipcode")
 
 
-#come up with a stat to measure market niech by multiplying avg number of reviews by zip code by average rating by zip code, and divding that by number of resturants by zip code 
+#come up with a stat to measure market niche by multiplying avg number of reviews by zip code by average rating by zip code, and divding that by number of resturants by zip code 
 
 
 df_fig3_final["marker_niech"] =( df_fig3_final["avg_review_count"] * (df_fig3_final["avg_rating"])) / df_fig3_final["rest_count_by_zipcode"]
 df_fig3_final = df_fig3_final.sort_values('marker_niech', ascending= True)
 
 
+#Plot the market niche stat by zip code and take the highest
 
+x2 = np.arange(len(df_fig3_final.Zipcode))  # the label locations
+
+fig, ax = plt.subplots()
+rects1_fig3 = ax.barh(x2 - width/2, df_fig3_final.marker_niech, width, align='center')
+
+
+# Add some text for labels, title and custom x-axis tick labels, etc.
+ax.set_ylabel('Zip Codes')
+ax.set_xlabel('Market Niche Value')
+ax.set_title('Food Trucks Areas in Austin (Yelp Sample)')
+ax.set_yticks(x2, df_fig3_final.Zipcode)
+
+
+fig.tight_layout()
+
+plt.show()
 
