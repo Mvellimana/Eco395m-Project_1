@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+
 """Load in csv with Yelp API scraped data"""
 url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/main/results.csv"
 
@@ -11,6 +12,7 @@ Yelp_scrape = pd.read_csv(io.StringIO(download.decode("utf-8")))
 
 
 """Merging categroies to create 10 bins"""
+
 
 temp_catg = np.zeros(np.shape(Yelp_scrape.categories))
 
@@ -49,7 +51,9 @@ Yelp_scrape["Categories_merged"] = Yelp_scrape["Categories_merged"].replace(8,"C
 Yelp_scrape["Categories_merged"] = Yelp_scrape["Categories_merged"].replace(9,"Specification (Vegan/Glutenfree)")
 Yelp_scrape["Categories_merged"] = Yelp_scrape["Categories_merged"].replace(10,"food delivery services/groceries/venues/cafeterias")
 
+
 """Create coordinate columns"""
+
 
 Yelp_scrape["Latitude"] = Yelp_scrape["coordinates"].apply(lambda st: st[st.find(""latitude": ")+11:st.find(", "lon")])
 Yelp_scrape["Longitude"] = Yelp_scrape["coordinates"].apply(lambda st: st[st.find(""longitude": ")+12:st.find("}")])
@@ -58,13 +62,17 @@ Yelp_scrape["Longitude"] = Yelp_scrape["coordinates"].apply(lambda st: st[st.fin
 Yelp_scrape["Latitude"]= Yelp_scrape["Latitude"].astype(float)
 Yelp_scrape["Longitude"]= Yelp_scrape["Longitude"].astype(float)
 
+
 """Remove square brackets in address and create new column for zipcode"""
+
 
 Yelp_scrape["Address_mod"]= Yelp_scrape["address"].str.strip("[]")
 Yelp_scrape["Zipcode"] = Yelp_scrape["Address_mod"].apply(lambda st: st[st.find(", TX ")+5:-1])
 Yelp_scrape["Zipcode"]=Yelp_scrape["Zipcode"].str.strip()
 
+
 """Create binary transc columns"""
+
 
 Yelp_scrape["Delivery"]= Yelp_scrape["transaction types"].str.contains("delivery")
 Yelp_scrape["Delivery"]= Yelp_scrape["Delivery"].astype(int)
@@ -75,12 +83,16 @@ Yelp_scrape["Pickup"]= Yelp_scrape["Pickup"].astype(int)
 Yelp_scrape["Reservation"]= Yelp_scrape["transaction types"].str.contains("restaurant_reservation")
 Yelp_scrape["Reservation"]= Yelp_scrape["Reservation"].astype(int)
 
+
 """Dropping records with no price data"""
+
 Yelp_scrape["price level"]=Yelp_scrape["price level"].str.strip().replace("",np.nan)
 Yelp_scrape["price level"].replace("", np.nan, inplace=True)
 Yelp_scrape.dropna(subset=["price level"], inplace=True)
 
+
 """Finding review threshold"""
+
 Yelp_scrape.sort_values("review count")
 plt.rcParams["figure.figsize"] = (20,10)
 review_ct = pd.Series(Yelp_scrape["review count"].values, index=Yelp_scrape["id"])
@@ -91,23 +103,29 @@ plt.xticks(np.arange(0, 6000, 200))
 
 plt.show()
 
+
 """Dropping records with review less than 10"""
 
 Yelp_scrape = Yelp_scrape.drop(Yelp_scrape[(Yelp_scrape["review count"] <10) ].index)
 
 """Create std rating and review count"""
 
+
 Yelp_scrape["Rating_stndized"] =( Yelp_scrape["rating"] - Yelp_scrape["rating"].mean() ) / Yelp_scrape["rating"].std()
 Yelp_scrape["Review count_stndized"] =( Yelp_scrape["review count"] - Yelp_scrape["review count"].mean() ) / Yelp_scrape["review count"].std()
+
 
 """standard deviation by category"""
 Yelp_scrape["Stnd_dev_by_catg"] =Yelp_scrape.groupby("Categories_merged")["review count"].transform("std")
 
 
 """summary stat"""
+
 Yelp_scrape[["rating","review count","Rating_stndized","Review count_stndized"]].agg(["min", "max", "std", "mean","var"])
 
 Yelp_scrape[["Delivery","Pickup","Reservation"]].agg(["sum"])  
 
+
 """Save to csv"""
+
 Yelp_scrape.to_csv("Yelp_API_Data_Cleaned.csv", index = False)  

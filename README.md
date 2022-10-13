@@ -1,5 +1,6 @@
 # How to Find Market Niche for your Business
 ## Introduction
+
                                                             
 Have you thought about using web scraping for your potential dish scraping business? If yes, this report would give you an applicable method to follow, which would pay off in the future. The goal of the project is to provide an insightt to potential investors in food & beverage industry. The idea here is to scrape Yelp restaurants data, clean it, then analyze it by finding out which cuisine has a market niche, and where it locates in Austin?
 
@@ -25,6 +26,7 @@ Also, ratings and review counts were standardized using by z-scoring to have the
 
 ### What does restaurant population in Austin look like
 
+
 Austin restaurants seem to be popular among for people with a mean rating of 4.1 evaluated from 739 restaurants. Nearly 84% of the restaurants offer delivery. This seems coherent with the busy lifestyle of Austinites. 
 
 |      | Summary Statistics |              |                     |                           |
@@ -39,6 +41,8 @@ Austin restaurants seem to be popular among for people with a mean rating of 4.1
 |      |                    |              |                     |                           |
 |      | Delivery           | Pickup       | Reservation         |                           |
 | sum  | 619                | 315          | 6                   |                           |
+
+## Analysis
 
 
 
@@ -82,9 +86,11 @@ As we can see from the graph below, the market is saturated with American, Mexic
 
 For this section, we had look into the zip codes of the Food Truck/Food Stands to find which zip codes have the highest customer engagments using Yelp reviewers. We believe this a good method to use since it could give the investor an insight where customers have higher probability to write a comment in Yelp for your restaurant which the investor could leverage on.
 
+
 Since some of the Food Truks are located within the same zip codes, we had to group them by the zip code and finding the average review counts, number of food trucks in each zip code, and average rating with a zip code.
 
 In order to build a statstical measure for market niche, we created a statstical ratio for that. So basically, we multiplied the average rating by the average number of reviews within a zip code, then divide that by the number of restaurants to penalize the ratio. The idea here is to inflate the number of the average review counts if you have good reviews, and discount it by the number of food trucks to be able to find market niche.
+
 
 Market Niche = (Average Number of Reviews by the Zip Code * Average Rating by the Zip Code)/Number of Restaurants
 
@@ -106,3 +112,4 @@ We dont have the detailed price and sales volume for every restaurant which hind
 We did find plethora of information on reviewers on Yelp. This can be sufficient to perform a reviewer profiling and ask some useful questions on credibility of reviewers and perhaps quantify how valuable reviews are to a business. 
 We also think we can expand the results from our search in terms of geography, food categories etc. 
 Furthermore, this offers opportunity  to run multiple prediction models to analyse different aspects like popularity of restaurants, rating accuracy, fraudulent  reviewers etc. 
+

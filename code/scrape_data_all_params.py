@@ -11,9 +11,11 @@ headers = {
 }
 
 
+
 '''
 Using API to get 1000 results and grabbing the parameters of interest
 '''
+
 restaurant_data = []
 
 for offset in range(0,1000,50):
@@ -58,10 +60,12 @@ for offset in range(0,1000,50):
         break
 
 
+
         
 '''
 Create list of dictionaries with parameter values from data grabbed with API
 '''
+
 restaurants = []
 
 for i in range(len(restaurant_data)):
@@ -83,10 +87,12 @@ for i in range(len(restaurant_data)):
 restaurants_sorted = sorted(restaurants, key = operator.itemgetter("id"), reverse=True)
 
 
+
 '''
 Writing the list of dictionaries to CSV
 '''
 with open(os.path.join("artifacts", "results.csv"), "w", encoding = "utf-8", newline="") as output_file:
+
     dict_writer = csv.DictWriter(output_file, fieldnames=["id", "name", "is closed", "rating", "review count", "categories", "address", "coordinates", "transaction types", "price level"])
     dict_writer.writeheader()
     dict_writer.writerows(restaurants_sorted)
