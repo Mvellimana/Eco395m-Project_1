@@ -42,3 +42,24 @@ df_anlz_sum = df_anlz[[
 'rating', 
 'Rating_stndized']].groupby(["Categories_merged"]).mean()
 
+
+#findng number of resturants by category and standarized them
+
+df_anlz_sum2 = df_anlz.groupby(["Categories_merged"])["Categories_merged"].count().reset_index(name="rest_count")
+df_anlz_sum2['rest_count_standarized'] = df_anlz_sum2.rest_count.transform(zscore, ddof=1)
+
+
+
+#merge the standarized and non-standarized ones
+
+df_anlz_final = pd.merge(df_anlz_sum, df_anlz_sum2, on = "Categories_merged")
+
+df_anlz_final = df_anlz_final.sort_values(by=['Rating_stndized',], ascending= False)
+
+
+
+
+
+
+
+
