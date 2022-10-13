@@ -65,7 +65,7 @@ We observed that there are many categories of food in Austin and so naturally it
 | Food delivery services/groceries/venues/cafeterias |
 | Specification (Vegan/Glutenfree)                   |
 
-![Food Categories](/artifacts/gif/category_gif)
+![Food Categories](/artifacts/gif/category.gif)
 
 
 This map is populated using the script: category_map.py
@@ -76,7 +76,7 @@ We analyzed the resturants by their category in order to get the averages of pri
 
 As we can see from the graph below, the market is saturated with American, Mexican/South American, and Asian. However, by looking at the Food Truck/Food Stands and Middle Eastern/Indian/African categories, we can see good opportunites there in terms of lack of number of resturants, and their high reviews which reflects the prefrence of the consumers. For the sake of this project we decided to deep-dive into the Food Truck/Food Stands category.
 
-![Best Restaurants Category](artifacts/best_category.png)
+![Best Restaurants Category](/artifacts/best_restaurant.png)
 
 ### What Zip Code is optimal?
 
@@ -90,7 +90,7 @@ Market Niche = (Average Number of Reviews by the Zip Code * Average Rating by th
 
 We found out that 78741 is the highest by far. One reason is because there is an HEB market in this ZIP Code, with an elementary school which reflects a neighborhood with certain purchasing power.
 
-![Food Trucks in Austin by Zip Code](artifacts/food_trucks.png)
+![Food Trucks in Austin by Zip Code](/artifacts/food_trucks.png)
 
 ## Conclusion
 
