@@ -3,8 +3,9 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-os.chdir('/Users/Mai/Documents/ECO385M/Project 1')  #specific
-Yelp_scrape = pd.read_excel("API_Scrape.xlsx") #Jordan's csv
+
+os.chdir('Put csv folder path')  
+Yelp_scrape = pd.read_csv("results.csv") 
 
 
 #Merging categroies to create 10 bins
