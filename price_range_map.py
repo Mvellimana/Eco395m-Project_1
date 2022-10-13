@@ -25,3 +25,15 @@ crs = {'init': 'epsg:4326'}
 geometry = [Point(xy) for xy in zip(df["Longitude"],df["Latitude"])]
 geo_df = gpd.GeoDataFrame(df, crs=crs, geometry=geometry)
 
+"""plot a graph showing all locations of restaurants in the dataset and highlight different price levels"""
+fig,ax = plt.subplots(figsize = (15,15))
+austin_map.plot(ax=ax, alpha=0.4, color="xkcd:sky blue")
+geo_df[geo_df["price_level"] == 1].plot(ax=ax, markersize=20, color="red", marker="o", label="Low Price Level")
+geo_df[geo_df["price_level"] == 2].plot(ax=ax, markersize=20, color="green", marker="^", label="Medium Price Level")
+geo_df[geo_df["price_level"] == 3].plot(ax=ax, markersize=20, color="yellow", marker="s", label="High Price Level")
+ax.set_title("Restaurants in Austin City based on Prices") 
+plt.legend(prop={"size": 15})
+
+fig.savefig('gif/price_range_map.png', 
+              dpi=100, format='png', 
+              bbox_inches='tight')
