@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/main/results.csv"
 
 download = requests.get(url).content
-Yelp_scrape = pd.read_csv(io.StringIO(download.decode('utf-8')))
+Yelp_scrape = pd.read_csv(io.StringIO(download.decode("utf-8")))
 
 
 #Merging categroies to create 10 bins
