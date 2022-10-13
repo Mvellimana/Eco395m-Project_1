@@ -80,5 +80,11 @@ fig.tight_layout()
 plt.show()
 
 
+#filter the data by food truks
+
+df_fig3 = df_anlz.query('Categories_merged == "Food Trucks/Food Stands"')
+
+
+
 
 
