@@ -7,7 +7,7 @@ from scipy import stats
 from scipy.stats import zscore
 
 #Cleaned Data URL from Mai branch
-url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/Data-cleaning-%26-preprocessing_Mai/Yelp_API_Data_Cleaned.csv"
+url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/main/artifacts/Yelp_API_Data_Cleaned.csv"
 
 download = requests.get(url).content
 df = pd.read_csv(io.StringIO(download.decode("utf-8")))
@@ -16,14 +16,14 @@ df = pd.read_csv(io.StringIO(download.decode("utf-8")))
 #Select needed variables
 
 df_anlz = df[[
-"categories", 
-"Categories_merged", 
-"price level", 
-"review count", 
-"Review count_stndized", 
-"rating", 
-"Rating_stndized", 
-"Zipcode"]].copy()
+'categories', 
+'Categories_merged', 
+'price level', 
+'review count', 
+'Review count_stndized', 
+'rating', 
+'Rating_stndized', 
+'Zipcode']].copy()
 
 
 #Replace dollar signs to use it later for price avg/category
@@ -76,7 +76,7 @@ ax.legend(loc="best", bbox_to_anchor= (1.5, 1.1))
 
 fig.tight_layout()
 
-fig.savefig('artifacts/best_category.png', 
+fig.savefig('artifacts/figures/best_restaurant.png', 
               dpi=100, format='png', 
               bbox_inches='tight')
 
@@ -120,7 +120,7 @@ ax.set_xlabel("Market Niche Value")
 ax.set_title("Food Trucks Areas in Austin (Yelp Sample)")
 ax.set_yticks(x2, df_fig3_final.Zipcode)
 
-fig.savefig('artifacts/market_niech.png', 
+fig.savefig('artifacts/figures/market_niech.png', 
               dpi=100, format='png', 
               bbox_inches='tight')
 
