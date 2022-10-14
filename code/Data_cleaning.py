@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 
 """Load in csv with Yelp API scraped data"""
-url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/main/results.csv"
+url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/main/artifacts/results.csv"
 
 download = requests.get(url).content
 Yelp_scrape = pd.read_csv(io.StringIO(download.decode("utf-8")))
