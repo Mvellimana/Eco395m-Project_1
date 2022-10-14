@@ -7,7 +7,7 @@ from scipy import stats
 from scipy.stats import zscore
 
 #Cleaned Data URL from Mai branch
-url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/main/Data/Yelp_API_Data_Cleaned.csv"
+url = "https://raw.githubusercontent.com/Mvellimana/Eco395m-Project_1/main/artifacts/Yelp_API_Data_Cleaned.csv"
 
 download = requests.get(url).content
 df = pd.read_csv(io.StringIO(download.decode("utf-8")))
